@@ -74,11 +74,11 @@ body {
                                 font-size: 18px;
                                 font-weight: normal;
                                 color: $text-color-menu-mobile;
-                            }
-    
-                            .active {
-                                font-weight: bold;
-                                color: $button;
+
+                                &.active {
+                                    font-weight: bold;
+                                    color: $button;
+                                }
                             }
     
                             hr {
@@ -88,11 +88,7 @@ body {
                             }
                         }
                     }
-                }
-                
-                
-
-                
+                }                
             }
 
             h2 {
