@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+$background: #000;
+$text-color: #FFF;
+$button: #8257E5;
+$border: #29292E;
+$border-menu-mobile: #A8A8B3;
+$text-color-menu-mobile: #E1E1E6;
+
+@mixin dimension($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin dimensionSquare($size) {
+    width: $size;
+    height: $size;
+}
+
+html {
+    color: $text-color;
+    font-family: 'Manrope', sans-serif;
+
+    h1 {
+        span {
+            color: $background;
+            text-shadow: -1px -1px 0 $button, 1px -1px 0 $button, -1px 1px 0 $button, 1px 1px 0 $button;
+        }
+    }
+}
+
+@media (max-width: 786px) {
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+}
+@media (min-width: 786.5px) {
+    h1 {
+        font-size: 80px;
+    }
+    h2 {
+        display: none;
+    }
+}

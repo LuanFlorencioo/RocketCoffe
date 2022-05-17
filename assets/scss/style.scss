@@ -1,0 +1,149 @@
+@import './patterns.scss';
+@import './reset.scss';
+
+body {
+    background: $background;
+
+    #container {
+        @include dimensionSquare(100%)
+    }
+}
+
+@media (max-width: 786px) {
+    main {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        user-select: none;
+
+        header {
+            @include dimension(85%, 450px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            
+            .top-header {
+                @include dimension(100%, 60px);
+                margin-top: 40px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                
+                .image-logo {
+                    @include dimension(50%, 100%);
+                    background-image: url(../images/logo-mobile.svg);
+                    background-repeat: no-repeat;
+                    background-position: 0 50%;
+                }
+
+                nav {
+                    @include dimension(20%, 100%);
+                    background-repeat: no-repeat;
+                    background-position: 100% 50%;
+
+                    &.menu-closed {
+                        background-image: url(../images/menu-buguer-open.svg);
+    
+                        ul {
+                            display: none;
+                        }
+                    }
+
+                    &.menu-opened {
+                        background-image: url(../images/menu-buguer-close.svg);
+                        
+                        ul {
+                            @include dimension(100%, 88vh);
+                            background: $background;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            position: absolute;
+                            top: 100px;
+                            left: 0;
+                            animation: dashMenuIn .3s forwards;
+    
+                            li {
+                                @include dimension(100%, 56px);
+                                padding-left: 10%;
+                                display: flex;
+                                align-items: center;
+                                font-size: 18px;
+                                font-weight: normal;
+                                color: $text-color-menu-mobile;
+                            }
+    
+                            .active {
+                                font-weight: bold;
+                                color: $button;
+                            }
+    
+                            hr {
+                                @include dimension(100%, 0);
+                                background: $border-menu-mobile;
+                                opacity: .3;
+                            }
+                        }
+                    }
+                }
+                
+                
+
+                
+            }
+
+            h2 {
+                max-width: 360px;
+                text-align: center;
+                font-size: 30px;
+                font-weight: 600;
+                color: $text-color
+            }
+
+            button {
+                @include dimension(175px, 40px);
+                background: transparent;
+                border-radius: 6px;
+                border: 1px solid $button;
+                font-size: 11px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $text-color;
+            }
+        }
+
+        #home {
+            @include dimension(100%, 400px);
+            background-image: url(../images/blur-mobile.png);
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            
+            h1 {
+                text-align: center;
+            }
+            
+            img {
+                max-width: 425px;
+            }
+        }
+    }
+}
+
+@keyframes dashMenuIn {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    } to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
