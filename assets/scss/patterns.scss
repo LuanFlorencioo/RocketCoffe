@@ -7,7 +7,7 @@ $border: #29292E;
 $border-menu-mobile: #A8A8B3;
 $text-color-menu-mobile: #E1E1E6;
 
-@mixin dimension($width, $height) {
+@mixin size($width, $height) {
     width: $width;
     height: $height;
 }
@@ -15,6 +15,13 @@ $text-color-menu-mobile: #E1E1E6;
 @mixin dimensionSquare($size) {
     width: $size;
     height: $size;
+}
+
+@mixin displayFlex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
 }
 
 html {

@@ -5,42 +5,36 @@ body {
     background: $background;
 
     #container {
-        @include dimensionSquare(100%)
+        width: 100%;
     }
 }
 
 @media (max-width: 786px) {
     main {
-        width: 100vw;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
+        width: 100%;
+        @include displayFlex(column, flex-start, center);
         user-select: none;
 
         header {
-            @include dimension(85%, 450px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+            @include size(85%, 450px);
+            @include displayFlex(column, space-between, center);
             
             .top-header {
-                @include dimension(100%, 60px);
-                margin-top: 40px;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+                @include size(100%, 100px);
+                @include displayFlex(row, space-between, center);
+                position: sticky;
+                top: 0;
+                background: $background;
                 
                 .image-logo {
-                    @include dimension(50%, 100%);
+                    @include size(50%, 100%);
                     background-image: url(../images/logo-mobile.svg);
                     background-repeat: no-repeat;
                     background-position: 0 50%;
                 }
 
                 nav {
-                    @include dimension(20%, 100%);
+                    @include size(20%, 100%);
                     background-repeat: no-repeat;
                     background-position: 100% 50%;
 
@@ -56,21 +50,18 @@ body {
                         background-image: url(../images/menu-buguer-close.svg);
                         
                         ul {
-                            @include dimension(100%, 88vh);
+                            @include size(100%, 100%);
+                            @include displayFlex(column, flex-start, center);
                             background: $background;
-                            display: flex;
-                            flex-direction: column;
-                            align-items: center;
-                            position: absolute;
+                            position: fixed;
                             top: 100px;
                             left: 0;
                             animation: dashMenuIn .3s forwards;
     
                             li {
-                                @include dimension(100%, 56px);
+                                @include size(100%, 56px);
+                                @include displayFlex(row, flex-start, center);
                                 padding-left: 10%;
-                                display: flex;
-                                align-items: center;
                                 font-size: 18px;
                                 font-weight: normal;
                                 color: $text-color-menu-mobile;
@@ -82,7 +73,7 @@ body {
                             }
     
                             hr {
-                                @include dimension(100%, 0);
+                                @include size(100%, 0);
                                 background: $border-menu-mobile;
                                 opacity: .3;
                             }
@@ -100,7 +91,7 @@ body {
             }
 
             button {
-                @include dimension(175px, 40px);
+                @include size(175px, 40px);
                 background: transparent;
                 border-radius: 6px;
                 border: 1px solid $button;
@@ -112,16 +103,13 @@ body {
         }
 
         #home {
-            @include dimension(100%, 400px);
+            @include size(100%, 400px);
+            @include displayFlex(column, space-between, center);
             background-image: url(../images/blur-mobile.png);
             background-position: 0 100%;
             background-repeat: no-repeat;
             background-size: 100% 100%;
             margin-top: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
             
             h1 {
                 text-align: center;
@@ -129,6 +117,91 @@ body {
             
             img {
                 max-width: 425px;
+            }
+        }
+    }
+}
+
+@media (min-width: 787px) {
+    main {
+        @include size(100%, 100vh);
+        @include displayFlex(column, space-between, center);
+        background-image: url(../images/blur-1.png), url(../images/blur-2.png);
+        background-repeat: no-repeat, no-repeat;
+        background-position: 0 100%, 100% 0;
+
+        header {
+            @include size(100%, 50px);
+            max-width: 920px;
+            @include displayFlex(row, space-between, center);
+            margin: 50px 0;
+
+            .top-header {
+                @include size(calc(100% - 172px), 50px);
+                @include displayFlex(row, space-around, center);
+
+                .image-logo {
+                    @include size(50px, 50px);
+                    background-image: url(../images/logo-desktop.svg);
+                    background-repeat: no-repeat;
+                }
+
+                nav {
+                    @include size(430px, 100%);
+
+                    ul {
+                        @include size(100%, 100%);
+                        @include displayFlex(row, space-between, center);
+
+                        li {
+                            text-transform: capitalize;
+                            cursor: pointer;
+                            transition: .2s;
+
+                            &:hover {
+                                color: $button;
+                            }
+                        }
+
+                        hr {
+                            display: none
+                        }
+                    }
+                }
+            }
+
+            button {
+                @include size(175px, 40px);
+                background: transparent;
+                border-radius: 6px;
+                border: 1px solid $button;
+                font-size: 11px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: $text-color;
+                cursor: pointer;
+                margin: 4px 0;
+                transition: .2s;
+
+                &:hover {
+                    font-size: 13px;
+                    background: $button;
+                }
+            }
+
+        }
+
+        #home {
+            width: 100%;
+            @include displayFlex(column, space-between, center);
+
+            h1 {
+                text-align: center;
+            }
+
+            img {
+                width: 40vw;
+                max-width: 800px;
             }
         }
     }

@@ -3,9 +3,11 @@ const handleClickMenu = (e) => {
     const opened = 'menu-opened';
     const closed = 'menu-closed';
     const target = e.target.classList;
-    (e.target.className === closed) ?
-        target.replace(closed, opened) :
+    if (e.target.className === closed) {
+        target.replace(closed, opened);
+    } else {
         target.replace(opened, closed);
+    }
 }
 navMenu.addEventListener('click', handleClickMenu);
 
