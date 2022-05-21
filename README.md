@@ -1,5 +1,5 @@
-![image](./assets/images/Capa.jpg)
+# RocketCoffe
 
-<h1 style='text-align:center'>RocketCoffe</h1>
+![image](./assets/images/Capa.jpg)
 
 > Desafio da rocketseat, projetado por: João Inácio (Biro) e Tamires Santos.
